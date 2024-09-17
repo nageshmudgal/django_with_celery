@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure--75w4t2$06=ld51-ynt7mz8293**(a=h4hrifo+ib1d@c(^s%i
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CSRF_TRUSTED_ORIGINS=['https://sturdy-giggle-6wqv55xp6x7f649-8000.app.github.dev/','https://localhost:8000']
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "mainapp",
+    "send_mail",
     "django_celery_results",
     "django_celery_beat"
 ]
@@ -136,3 +137,10 @@ CELERY_RESULT_BACKEND='django-db'
 
 # celery beat
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nmdemo70@gmail.com'
+EMAIL_HOST_PASSWORD ='jybqxczbizefsxqu'
+EMAIL_USE_TLS = True
